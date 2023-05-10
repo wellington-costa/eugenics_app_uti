@@ -41,7 +41,7 @@ class HospitalController extends Controller
     public function index()
     {
         $hospital = new Hospital();
-        $hospitals = $hospital->all();
+        $hospitais = $hospital->all();
 
         $this->view('hospital/index', $this->layout, compact("hospitais"));
     }

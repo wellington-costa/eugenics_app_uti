@@ -27,6 +27,7 @@ class LeitoController extends Controller
         $this->post = new Post();
         $this->get = new Get();
         $this->idPerfilUsuarioLogado = Session::get('idPerfil');
+        $this->idHospital = Session::get('idHospital');
 
         $logged = new Logged();
         $logged->isValid();
@@ -42,6 +43,17 @@ class LeitoController extends Controller
         $this->view('leito/index', $this->layout, compact("leitos"));
     }
 
+    public function dashboard() {
+        $paciente = new Paciente();
+        $leito = new Leito();
+
+        $pacientes = $paciente->pacientes($this->idHospital);
+        $leitos = $leito->leitos();
+
+        $this->view('leito/dashboard', $this->layout, compact("pacientes","leitos"));
+
+   }
+
     public function save()
     {
         if ($this->post->hasPost()) {
@@ -51,7 +63,7 @@ class LeitoController extends Controller
 
             try {
                  $leito->save($dados);
-                return $this->get->redirectTo("leitos");
+                return $this->get->redirectTo("leitos/dashboard");
 
             } catch (\Exception $e) {
                 dd($e->getMessage());
@@ -69,7 +81,7 @@ class LeitoController extends Controller
 
         try {
             $leito->update($dados, $dadosLeito->id);
-            return $this->get->redirectTo("leitos");
+            return $this->get->redirectTo("leitos/dasboard");
 
         } catch (\Exception $e) {
             dd($e->getMessage());

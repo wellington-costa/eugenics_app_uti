@@ -2,9 +2,6 @@
 use App\Config\ConfigPerfil;
 use App\Models\ConfigPdv;
 use System\Session\Session;
-
-$configPdv = new ConfigPdv();
-$configPdv = $configPdv->configPdv(Session::get('idEmpresa'));
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -129,7 +126,7 @@ $configPdv = $configPdv->configPdv(Session::get('idEmpresa'));
 
                 </div>
             </a>
-            <a href="<?php echo BASEURL; ?>/pdvDiferencial" class="simple-text logo-normal">
+
           <span style="color:#00cc66;">&nbsp;&nbsp;&nbsp;
             <?php if (getenv('APPLICATION_NAME')): ?>
                 <?php echo getenv('APPLICATION_NAME'); ?>
@@ -199,17 +196,12 @@ $configPdv = $configPdv->configPdv(Session::get('idEmpresa'));
                                 </a>
 
                                 <!--Modulo Hospitais-->
-                                <?php if (Session::get('idPerfil') == 1): ?>
-                                    <a class="dropdown-item" href="<?php echo BASEURL; ?>/hospital">
+                                <?php //if (Session::get('idPerfil') == 1): ?>
+                                    <!--<a class="dropdown-item" href="<?php //echo BASEURL; ?>/hospital">
                                         <i class="fas fa-store"></i> Hospitais
-                                    </a>
-                                <?php endif; ?>
-
-                                <?php //if (Session::get('idPerfil') != ConfigPerfil::vendedor()): ?>
-                                    <a class="dropdown-item" href="<?php echo BASEURL; ?>/configuracao">
-                                        <i class="fas fa-cogs"></i> Configurações
-                                    </a>
+                                    </a>-->
                                 <?php //endif; ?>
+
 
                                 <?php //if (Session::get('idPerfil') != ConfigPerfil::vendedor()): ?>
                                     <a class="dropdown-item" href="<?php echo BASEURL; ?>/logs">

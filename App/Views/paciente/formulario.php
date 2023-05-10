@@ -71,6 +71,13 @@
                 </select>
             </div>
         </div>
+        <div class="col-md-4">
+            <div class="form-group">
+                <label for="peso">Peso Kg:</label>
+                <input type="number" min="0" max="100" step=".01" class="form-control" name="peso" id="peso"
+                       value="<?php echo isset($paciente->id) ? $paciente->peso : '' ?>">
+            </div>
+        </div>
 
     </div><!--end row-->
     <div class="row">
@@ -178,6 +185,13 @@
 
     </div><!--end row-->
     <div class="row">
+    <div class="col-md-4">
+            <div class="form-group">
+                <label for="data_admissao">Data de Admissão no HRE:</label>
+                <input type="datetime-local" class="form-control" name="data_admissao" id="data_admissao"
+                       value="<?php echo isset($paciente->id) ? $paciente->data_admissao : '' ?>" required>
+            </div>
+        </div>
         <div class="col-md-7">
             <div class="form-group">
                 <label for="diagnostico">Diagnóstico</label>

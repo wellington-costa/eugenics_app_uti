@@ -16,43 +16,6 @@ use System\Session\Session;
             </a>
         </li>
 
-        <!--Modulo PDV Padrão e Diferencial-->
-        <!--<li class="">
-
-            <?php //if ($configPdv->id_tipo_pdv == 1): ?>
-                <a href="<?php //echo BASEURL; ?>/pdvPadrao"
-                   class="<?php //currentRouteFromMenu('pdvPadrao', 'pdvBorder'); ?>">
-                    <i class="fas fa-cart-arrow-down"></i>
-                    <p>Vendas <small style="float:right;opacity:0.50">Padrão</small></p>
-                </a>
-            <?php //elseif ($configPdv->id_tipo_pdv == 2): ?>
-                <a href="<?php //echo BASEURL; ?>/pdvDiferencial"
-                   class="<?php //currentRouteFromMenu('pdvDiferencial', 'pdvBorder'); ?>">
-                    <i class="fas fa-cart-arrow-down"></i>
-                    <p>Vendas <small style="float:right;opacity:0.50">Diferencial</small></p>
-                </a>
-            <?php //endif; ?>
-        </li>
-
-        <?php //if (Session::get('idPerfil') != ConfigPerfil::vendedor()): ?>
-            <li class="">
-                <a href="<?php //echo BASEURL; ?>/produto"
-                   class="<?php //currentRouteFromMenu('produto', 'produtoBorder'); ?>">
-                    <i class="fas fa-box-open"></i>
-                    <p>Produtos</p>
-                </a>
-            </li>
-        <?php //endif; ?>
-
-
-        <li class="">
-            <a href="<?php //echo BASEURL; ?>/cliente"
-               class="<?php //currentRouteFromMenu('cliente', 'clienteBorder'); ?>
-          <?php //currentRouteFromMenu('clienteEndereco', 'clienteBorder'); ?>">
-                <i class="fas fa-user-tie"></i>
-                <p>Clientes</p>
-            </a>
-        </li>-->
 
         <li class="">
             <a href="<?php echo BASEURL; ?>/paciente"
@@ -62,7 +25,7 @@ use System\Session\Session;
             </a>
         </li>
         <li class="">
-            <a href="<?php echo BASEURL; ?>/leitos"
+            <a href="<?php echo BASEURL; ?>/leitos/dashboard"
                class="<?php currentRouteFromMenu('leitos', 'leitosBorder'); ?>">
                 <i class="fas fa-procedures"></i>
                 <p>Leitos</p>
@@ -70,13 +33,7 @@ use System\Session\Session;
         </li>
 
 
-        <!--<li class="">
-            <a href="<?php //echo BASEURL; ?>/pedido"
-               class="<?php //currentRouteFromMenu('pedido', 'pedidoBorder'); ?>">
-                <i class="fas fa-shopping-basket"></i>
-                <p>Pedidos</p>
-            </a>
-        </li>-->
+
 
         <?php //if (Session::get('idPerfil') != ConfigPerfil::vendedor()): ?>
             <!--<li class="">
@@ -89,14 +46,7 @@ use System\Session\Session;
             </li>
         <?php //endif; ?>
 
-        <li class="">
-            <a href="<?php //echo BASEURL; ?>/fluxoDeCaixa/index"
-                class="<?php //('fluxoDeCaixa', 'fluxoDeCaixaBorder'); ?>
-                <?php //currentRouteFromMenu('fluxoDeCaixa/index', 'fluxoDeCaixaBorder'); ?>">
-                <i class="fas fa-money-bill"></i>
-                <p>Fluxo de caixa</p>
-            </a>
-        </li>-->
+
 
         <!--<div class="dropdown">
             <li class="active-pro dropdown-toggle dropdown-toggle dropdown-toggle-split" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

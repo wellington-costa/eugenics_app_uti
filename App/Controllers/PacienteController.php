@@ -50,6 +50,18 @@ class PacienteController extends Controller
         $this->view('paciente/index', $this->layout, compact("pacientes","leitos"));
     }
 
+    public function dashboard() {
+         $paciente = new Paciente();
+         $leito = new Leito();
+
+         $pacientes = $paciente->pacientes($this->idHospital);
+         $leitos = $leito->leitos();
+
+         $this->view('paciente/dashboard', $this->layout, compact("pacientes","leitos"));
+
+    }
+
+
 
     public function save()
     {
@@ -93,7 +105,7 @@ class PacienteController extends Controller
         $leito = new Leito();
         $dadospaciente = $paciente->find($this->post->data()->id);
         $dados = (array)$this->post->only([
-            'id_leito','status_now','diagnostico','data_nasc'
+            'id_leito','status_now','diagnostico','data_nasc','peso'
         ]);
         $dadosLeito = $leito->find($dadospaciente->id_leito);
 

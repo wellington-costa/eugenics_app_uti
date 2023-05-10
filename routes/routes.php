@@ -38,51 +38,10 @@ $route->get('desativarVenda/{idVenda}', 'PdvPadraoController@desativarVenda');
 $route->get('relatorio/itensDaVenda/{codigo}', 'RelatorioController@itensDaVendaChamadaAjax');
 $route->get('relatorio/gerarPdfDeUmaVenda/{codigo}', 'RelatorioController@gerarPdfDeUmaVenda');
 
-# ----- ProdutoController --------------------------------
-$route->get('produto', 'ProdutoController@index');
-$route->get('produto/modalFormulario/{idProduto?}', 'ProdutoController@modalFormulario');
-$route->post('produto/save', 'ProdutoController@save');
-$route->post('produto/update', 'ProdutoController@update');
-$route->get('produto/pesquisarProdutoPorNome/{nome?}', 'ProdutoController@pesquisarProdutoPorNome');
-$route->get('produto/pesquisarProdutoPorCodigoDeBarras/{codigo?}', 'ProdutoController@pesquisarProdutoPorCodigoDeBarras');
-$route->get('produto/excluirProduto/{idProduto}', 'ProdutoController@excluirProduto');
 
-# ----- ConfiguracaoController --------------------------------
-$route->get('configuracao', 'ConfiguracaoController@index');
-$route->post('configuracao/alterarConfigPdv', 'ConfiguracaoController@alterarConfigPdv');
-
-# ----- PdvPadraoController  --------------------------------
-$route->get('pdvPadrao', 'PdvPadraoController@index');
-$route->post('pdvPadrao/save', 'PdvPadraoController@save');
-
-# ----- PdvDiferencialController  --------------------------------
-$route->get('pdvDiferencial', 'PdvDiferencialController@index');
-$route->get('pdvDiferencial/colocarProdutosNaMesa/{idProduto}', 'PdvDiferencialController@colocarProdutosNaMesa');
-$route->get('pdvDiferencial/obterProdutosDaMesa/{posicaoProduto?}', 'PdvDiferencialController@obterProdutosDaMesa');
-$route->get('pesquisarProdutoPorNome/{nome?}', 'PdvDiferencialController@pesquisarProdutoPorNome');
-$route->get('pesquisarProdutoPorCodigoDeBarra/{codigo?}', 'PdvDiferencialController@pesquisarProdutoPorCodeDeBarra');
-
-$route->get('pdvDiferencial/alterarAquantidadeDeUmProdutoNaMesa/{idProduto}/{quantidade}',
-    'PdvDiferencialController@alterarAquantidadeDeUmProdutoNaMesa');
-
-$route->get('pdvDiferencial/retirarProdutoDaMesa/{idProduto}', 'PdvDiferencialController@retirarProdutoDaMesa');
-$route->post('pdvDiferencial/saveVendasViaSession', 'PdvDiferencialController@saveVendasViaSession');
-
-$route->get('pdvDiferencial/obterValorTotalDosProdutosNaMesa',
-    'PdvDiferencialController@obterValorTotalDosProdutosNaMesa');
-
-$route->get('pdvDiferencial/calcularTroco/{valorRecebido}',
-    'PdvDiferencialController@calcularTroco');
-
-# ----- ClienteController --------------------------------
-$route->get('cliente', 'ClienteController@index');
-$route->get('cliente/modalFormulario/{idCliente?}', 'ClienteController@modalFormulario');
-$route->post('cliente/save', 'ClienteController@save');
-$route->post('cliente/update', 'ClienteController@update');
-$route->get('cliente/desativarCliente/{idCliente}', 'ClienteController@desativarCliente');
-$route->get('cliente/ativarCliente/{idCliente}', 'ClienteController@ativarCliente');
 # --------- PacienteController --------------------------------
 $route->get('paciente', 'PacienteController@index');
+#$route->get('paciente/dashboard', 'PacienteController@dashboard');
 $route->get('paciente/modalFormulario/{idPaciente?}', 'PacienteController@modalFormulario');
 $route->post('paciente/save', 'PacienteController@save');
 $route->post('paciente/update', 'PacienteController@update');
@@ -91,40 +50,12 @@ $route->get('paciente/ativarPaciente/{idPaciente}', 'PacienteController@ativarPa
 
 # --------- Leitos --------------------------------
 $route->get('leitos', 'LeitoController@index');
+$route->get('leitos/dashboard', 'LeitoController@dashboard');
 $route->get('leito/modalFormulario/{idLeito?}', 'LeitoController@modalFormulario');
 $route->post('leito/save', 'LeitoController@save');
 $route->post('leito/update', 'LeitoController@update');
 
-$route->get('cliente/verificaSeEmailExiste/{email}/{idCliente?}', 'ClienteController@verificaSeEmailExiste');
-$route->get('cliente/verificaSeCnpjExiste/{cnpj}/{idCliente?}', 'ClienteController@verificaSeCnpjExiste');
-$route->get('cliente/verificaSeCpfExiste/{cpf}/{idCliente?}', 'ClienteController@verificaSeCpfExiste');
 
-# ----- EnderecoController --------------------------------
-$route->post('clienteEndereco/save', 'ClienteEnderecoController@save');
-$route->post('clienteEndereco/update', 'ClienteEnderecoController@update');
-$route->get('clienteEndereco/modalFormulario/{idCliente}/{idEnderecoCliente?}',
-    'ClienteEnderecoController@modalFormulario');
-$route->get('clienteEndereco/buscarEnderecoViaCep/{cep?}', 'ClienteEnderecoController@buscarEnderecoViaCep');
-$route->get('clienteEndereco/modalVisualizarEnderecos/{idCliente}',
-    'ClienteEnderecoController@modalVisualizarEnderecos');
-
-# ----- PedidoController --------------------------------
-$route->get('pedido', 'PedidoController@index');
-$route->get('pedido/modalFormulario/{idPedido?}', 'PedidoController@modalFormulario');
-$route->get('pedido/enderecoPorIdCliente/{idCliente?}', 'PedidoController@enderecoPorIdCliente');
-$route->post('pedido/tabelaDepedidosChamadosViaAjax', 'PedidoController@tabelaDepedidosChamadosViaAjax');
-
-$route->post('pedido/adicionarClienteEendereco', 'PedidoController@adicionarClienteEendereco');
-$route->post('pedido/alterarClienteEndereco', 'PedidoController@alterarClienteEndereco');
-$route->post('pedido/adicionarProduto', 'PedidoController@adicionarProduto');
-$route->get('pedido/excluirProdutoPedido/{idProdutoPedido}', 'PedidoController@excluirProdutoPedido');
-$route->post('pedido/alterarQuantidadeProdutoPedido', 'PedidoController@alterarQuantidadeProdutoPedido');
-$route->get('pedido/produtosPorIdPedido/{idPedido}', 'PedidoController@produtosPorIdPedido');
-$route->post('pedido/finalizarPedido', 'PedidoController@finalizarPedido');
-$route->get('pedido/obterValorTotalDosProdutos/{idPedido}', 'PedidoController@obterValorTotalDosProdutos');
-$route->post('pedido/alterarSituacaoPedido', 'PedidoController@alterarSituacaoPedido');
-
-$route->get('pedido/teste', 'PedidoController@teste');
 
 # ----- LogController --------------------------------
 $route->get('logs', 'LogAcessoController@index');
@@ -143,18 +74,7 @@ $route->post('hospital/update', 'HospitalController@update');
 $route->get('hospital/modalFormulario/{idHospital?}', 'HospitalController@modalFormulario');
 $route->get('hospital/verificaSeEmailExiste/{email}/{idHospital?}', 'HospitalController@verificaSeEmailExiste');
 
-# ----- # ----- EmpresaController --------------------------------
-$route->get('fluxoDeCaixa/index', 'FluxoCaixa\FluxoCaixaController@index');
-$route->get('fluxoDeCaixa/modalRegistrarMovimentacao/{idFluxo?}', 'FluxoCaixa\FluxoCaixaController@modalRegistrarMovimentacao');
-$route->post('fluxoDeCaixa/save', 'FluxoCaixa\FluxoCaixaController@save');
-$route->post('fluxoDeCaixa/update', 'FluxoCaixa\FluxoCaixaController@update');
-$route->post('fluxoDeCaixa/tabelaFluxoDeCaixa', 'FluxoCaixa\FluxoCaixaController@tabelaFluxoDeCaixa');
 
-# TESTE
-$route->get('pwa/login', 'Api\InicioPwaController@index');
-$route->post('pwa/logar', 'Api\LoginController@logar');
-$route->get('pwa/pdv', 'Api\InicioPwaController@pdv');
-$route->get('test/vendedores', 'Api\TesteController@vendedores');
 
 # ----- # ----- CadastroExternoController --------------------------------
 $route->get('criarConta/index', 'CadastroExternoController@index');
