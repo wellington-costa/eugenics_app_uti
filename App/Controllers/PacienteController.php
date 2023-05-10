@@ -61,6 +61,27 @@ class PacienteController extends Controller
 
     }
 
+    public function visualizarPaciente($idPaciente)
+    {
+
+
+        if ($idPaciente) {
+            $paciente = new Paciente();
+            $paciente = $paciente->find($idPaciente);
+        }
+
+        $leito = new Leito();
+        $leitos = $leito->leitos();
+
+
+        $this->view('paciente/visualizar', $this->layout,
+            compact(
+                'paciente',
+                'leitos'
+
+            ));
+    }
+
 
 
     public function save()

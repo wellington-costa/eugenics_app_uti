@@ -7,6 +7,13 @@
 }
 </style>
     <div class="row">
+        <center>
+            <h1><b><?php echo $paciente->nome; ?></b></h1>
+        </center>
+
+    </div>
+</br>
+    <div class="row">
         <?php if (isset($paciente->id)): ?>
             <input type="hidden" name="id" value="<?php echo $paciente->id; ?>">
         <?php endif; ?>

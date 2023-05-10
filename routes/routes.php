@@ -46,6 +46,7 @@ $route->get('paciente/modalFormulario/{idPaciente?}', 'PacienteController@modalF
 $route->post('paciente/save', 'PacienteController@save');
 $route->post('paciente/update', 'PacienteController@update');
 $route->get('paciente/modalVisualizarPaciente/{idPaciente?}', 'PacienteController@modalVisualizarPaciente');
+$route->get('paciente/visualizarPaciente/{idPaciente?}', 'PacienteController@visualizarPaciente');
 $route->get('paciente/ativarPaciente/{idPaciente}', 'PacienteController@ativarPaciente');
 
 # --------- Leitos --------------------------------

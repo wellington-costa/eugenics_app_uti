@@ -38,11 +38,14 @@
                 <?php foreach ($pacientes as $paciente): ?>
                      <?php if ($paciente->status_now == 'Internado'): ?>
                     <tr>
-                        <?php $rota2 = BASEURL . '/paciente/modalVisualizarPaciente'; ?>
-                        <td style="cursor: pointer" onclick="modalVisualizarPaciente('<?php echo $rota2; ?>', '<?php echo $paciente->id; ?>', '<?php echo $paciente->nome; ?>')">
 
+
+                        <td style="cursor: pointer">
+                        <a href="<?php echo BASEURL; ?>/paciente/visualizarPaciente/<?php echo $paciente->id; ?>">
                             <?php echo $paciente->nome; ?>
+                        </a>
                         </td>
+
                         <td><?php echo $paciente->idade; ?></td>
                         <?php foreach ($leitos as $leito): ?>
                             <?php if ($leito->id==$paciente->id_leito): ?>
