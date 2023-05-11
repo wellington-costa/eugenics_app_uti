@@ -33,15 +33,7 @@ class PrescricaoController extends Controller
         $logged->isValid();
     }
 
-    public function index($idPaciente)
-    {
-        $prescricao = new Prescricao();
-        $prescricoes = $prescricao->prescricoes($idPaciente);
 
-
-
-        $this->view('prescricao/index', null, compact("prescricoes","idPaciente"));
-    }
 
     public function save()
     {
@@ -52,7 +44,7 @@ class PrescricaoController extends Controller
 
             try {
                  $prescricao->save($dados);
-                return $this->get->redirectTo("prescricaos/index");
+                return $this->get->redirectTo("prescricoes/index");
 
             } catch (\Exception $e) {
                 dd($e->getMessage());
@@ -60,34 +52,7 @@ class PrescricaoController extends Controller
         }
     }
 
-    public function modalFormularioPrescricao($idPrescricao=false )
-    {
-        $prescricao = false;
-
-        if ($idPrescricao) {
-            $prescricao = new Prescricao();
-            $prescricao = $prescricao->find($idPrescricao);
-        }
 
 
-        $this->view('prescricao/formulario', null,
-            compact(
-                'prescricao',
-                'idPaciente'
 
-            ));
-    }
-
-    public function modalFormularioPrescricaoIndex($idPaciente)
-    {
-        $prescricao = false;
-
-        if ($idPrescricao) {
-            $prescricao = new Prescricao();
-            $prescricao = $prescricao->find($idPrescricao);
-        }
-
-
-        $this->view('prescricao/index', null, compact("prescricoes","idPaciente"));
-    }
 }
