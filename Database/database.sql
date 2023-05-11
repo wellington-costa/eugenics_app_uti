@@ -14,17 +14,22 @@
 
 
 -- Copiando estrutura do banco de dados para zig
-CREATE DATABASE IF NOT EXISTS `zig` /*!40100 DEFAULT CHARACTER SET utf8 */ /*!80016 DEFAULT ENCRYPTION='N' */;
-USE `zig`;
+CREATE DATABASE IF NOT EXISTS `uti_hre` /*!40100 DEFAULT CHARACTER SET utf8 */ /*!80016 DEFAULT ENCRYPTION='N' */;
+USE `uti_hre`;
 
 -- Copiando estrutura para tabela zig.categoria_fluxo_caixa
-CREATE TABLE IF NOT EXISTS `categoria_fluxo_caixa` (
+CREATE TABLE IF NOT EXISTS `prescricoes` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `descricao` varchar(50) NOT NULL DEFAULT '0',
-  `created_at` timestamp NOT NULL,
+  `id_medico` int NOT NULL,
+  `id_paciente` int NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` timestamp NULL DEFAULT NULL,
-  `deleted_at` timestamp NULL DEFAULT NULL,
-  PRIMARY KEY (`id`)
+  `conteudo` text NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `FK_prescricoes_medico` (`id_medico`),
+  KEY `FK_prescricoes_paciente` (`id_paciente`),
+  CONSTRAINT `FK_prescricoes_medico` FOREIGN KEY (`id_medico`) REFERENCES `usuarios` (`id`),
+  CONSTRAINT `FK_prescricoes_paciente` FOREIGN KEY (`id_paciente`) REFERENCES `pacientes` (`id`),
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 -- Exportação de dados foi desmarcado.

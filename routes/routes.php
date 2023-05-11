@@ -56,6 +56,14 @@ $route->get('leito/modalFormulario/{idLeito?}', 'LeitoController@modalFormulario
 $route->post('leito/save', 'LeitoController@save');
 $route->post('leito/update', 'LeitoController@update');
 
+#--------------Prescricoes--------------------------------
+
+$route->get('prescricoes/{idPaciente?}', 'PrescricaoController@index');
+$route->get('prescricoes/modalFormularioIndex/{idPaciente?}', 'PrescricaoController@modalFormularioPrescricaoIndex');
+$route->get('prescricoes/modalFormulario/{idPaciente?}', 'PrescricaoController@modalFormularioPrescricao');
+$route->post('prescricoes/save/{idPaciente?}', 'PrescricaoController@save');
+$route->post('prescricoes/update/{idPaciente?}', 'PrescricaoController@update');
+
 
 
 # ----- LogController --------------------------------

@@ -7,7 +7,7 @@
         <div class="card-body">
             <h5 class="card-title"><i class="fas fa-store"></i> Prescrições</h5>
         </div>
-
+      <?php if(count($prescricoes) > 0): ?>
         <table id="example" class="table tabela-ajustada table-striped" style="width:100%">
             <thead>
             <tr>
@@ -26,6 +26,7 @@
             </thead>
             <tbody>
             <?php foreach ($prescricoes as $prescricao): ?>
+               <?php if($prescricao->id_paciente == $idPaciente): ?>
                 <tr>
                     <td><?php echo date('d/m/Y', strtotime($prescricao->created_at)); ?></td>
                     <td><?php echo $prescricao->id_medico; ?></td>
@@ -38,14 +39,30 @@
                         </button>
                     </td>
                 </tr>
+               <?php endif; ?>
             <?php endforeach; ?>
             <tfoot></tfoot>
         </table>
 
         <br>
 
+     <?php else: ?>
+        <center>
+                <i class="far fa-grin-beam" style="font-size:50px;opacity:0.60"></i> <br> <br>
+                Nenhum registro encontrado. <br>
+                <?php $rota = BASEURL . '/prescricao/modalFormulario'; ?>
+                    <button onclick="modalFormularioPrescricao('<?php echo $rota; ?>', '<?php echo $idPaciente; ?>');"
+                            class="btn btn-sm btn-success">
+                        <i class="fas fa-plus"></i>
+
+                    </button>
+        </center>
+    <?php endif; ?>
+
     </div>
 </div>
+
+
 
 <?php Modal::start([
     'id' => 'modalPrescricao',

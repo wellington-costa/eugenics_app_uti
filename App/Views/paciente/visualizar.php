@@ -1,3 +1,6 @@
+<!--Usando o Html Components-->
+<?php use System\HtmlComponents\Modal\Modal; ?>
+
 <style>
 .obs {
     background:#fffcf5;
@@ -85,15 +88,42 @@
         </div>
 
 
-
-    <button type="submit" class="btn btn-success btn-sm button-salvar-clientes" style="float:right">
-        <i class="fas fa-save"></i> Imprimir
+     <?php $rota3 = BASEURL . '/prescricoes/modalFormularioPrescricaoIndex';?>
+    <button type="submit" class="btn btn-success btn-sm button-salvar-clientes"
+            style="float:right"
+            onclick="modalFormularioPrescricaoIndex('<?php echo $rota3;?>', '<?php echo $paciente->id;?>')">
+        <i class="fas fa-file-alt"></i> Prescrições
     </button>
 
 </form>
 
 <script src="<?php echo BASEURL; ?>/js/maskedInput.js"></script>
+
+<?php Modal::start([
+    'id' => 'modalPrescricaoIndex',
+    'width' => 'modal-lg',
+    'title' => 'Prescrições'
+]); ?>
+
+<div id="index"></div>
+
+<?php Modal::stop(); ?>
+
 <script>
+    function modalFormularioPrescricaoIndex(rota, id) {
+        var url = "";
+
+        if (id) {
+            url = rota + "/" + id;
+        } else {
+            url = rota;
+        }
+
+        $("#index").html("<center><h3>Carregando...</h3></center>");
+        $("#modalPrescricaoIndex").modal({backdrop: 'static'});
+        $("#index").load(url);
+    }
+
     // Anula duplo click em salvar
     anulaDuploClick($('form'));
 

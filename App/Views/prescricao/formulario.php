@@ -5,7 +5,7 @@
 <?php $perfil = Session::get('idPerfil'); ?>
 <?php if(($perfil==4) or $perfil==1): ?>
 <form method="post"
-      action="<?php echo isset($hospital->id) ? BASEURL . '/prescricao/update' : BASEURL . '/prescricao/save'; ?>"
+      action="<?php echo isset($prescricao->id) ? BASEURL . '/prescricao/update' : BASEURL . '/prescricao/save'; ?>"
       enctype='multipart/form-data'>
     <!-- token de segurança -->
     <input type="hidden" name="_token" value="<?php echo TOKEN; ?>"/>
@@ -15,7 +15,7 @@
         <?php if (isset($prescricao->id)) : ?>
             <input type="hidden" name="id" value="<?php echo $prescricao->id; ?>">
         <?php endif; ?>
-        <input type="hidden" name="id_paciente" value="<?php echo $paciente->id; ?>">
+        <input type="hidden" name="id_paciente" value="<?php echo $idPaciente; ?>">
         <?php $medicoId = Session::get('idUsuario'); ?>
         <input type="hidden" name="id_medico" value="<?php echo $medicoId; ?>">
 
