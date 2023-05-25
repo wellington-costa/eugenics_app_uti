@@ -41,14 +41,12 @@ class Usuario extends Model
         return $this->query(
             "SELECT
             usuarios.id AS id, usuarios.nome,
-            usuarios.email, usuarios.id_sexo,
+            usuarios.email,
             usuarios.created_at, usuarios.imagem,
             usuarios.deleted_at,
-            sexos.descricao, perfis.descricao AS perfil
+            perfis.descricao AS perfil
 
-            FROM usuarios INNER JOIN sexos ON
-                usuarios.id_sexo = sexos.id
-            INNER JOIN perfis ON usuarios.id_perfil = perfis.id
+            FROM usuarios INNER JOIN perfis ON usuarios.id_perfil = perfis.id
             WHERE usuarios.id_empresa = {$idEmpresa} {$queryCondicional}"
         );
     }

@@ -71,11 +71,19 @@
                 </select>
             </div>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-2">
             <div class="form-group">
                 <label for="peso">Peso Kg:</label>
                 <input type="number" min="0" max="100" step=".01" class="form-control" name="peso" id="peso"
                        value="<?php echo isset($paciente->id) ? $paciente->peso : '' ?>">
+            </div>
+        </div>
+
+        <div class="col-md-2">
+            <div class="form-group">
+                <label for="altura">Altura Kg:</label>
+                <input type="number" min="0" max="100" step=".01" class="form-control" name="altura" id="altura"
+                       value="<?php echo isset($paciente->id) ? $paciente->altura : '' ?>">
             </div>
         </div>
 

@@ -4,6 +4,8 @@ namespace App\Controllers;
 
 use App\Models\Paciente;
 use App\Models\Leito;
+use App\Models\Prescricao;
+use App\Models\Usuario;
 
 use App\Rules\Logged;
 use Exception;
@@ -73,13 +75,37 @@ class PacienteController extends Controller
         $leito = new Leito();
         $leitos = $leito->leitos();
 
+        $prescricao1 = new Prescricao();
+        $prescricoes = $prescricao1->prescricoes($idPaciente);
+        $prescricao = end($prescricoes);
+        $usuario = null;
+        if(isset($prescricao->id_medico)) {
+            $usuarios = new Usuario();
+            $usuario = $usuarios->find($prescricao->id_medico);
+        }
 
         $this->view('paciente/visualizar', $this->layout,
             compact(
                 'paciente',
-                'leitos'
+                'leitos',
+                'prescricao',
+                'idPaciente',
+                'usuario'
 
             ));
+    }
+
+    public function modalVisualizarPrescricao($idPrescricao)
+    {
+        $prescricoes = new Prescricao();
+        $prescricao = $prescricoes->find($idPrescricao);
+        $camposConteudo = json_decode($prescricao->conteudo, true);
+        //echo (gettype($camposConteudo));
+
+
+        $this->view('paciente/visualizarPrescricao', null,
+            compact('prescricao', 'camposConteudo')
+           );
     }
 
 
@@ -204,5 +230,22 @@ class PacienteController extends Controller
 
     }
 
+
+
+    public function modalFormularioPrescricao($idPaciente )
+    {
+
+            $prescricao = new Prescricao();
+            $paciente = new Paciente();
+            $paciente = $paciente->find($idPaciente);
+
+
+        $this->view('paciente/formularioPrescricao', null,
+            compact(
+                'prescricao',
+                'paciente'
+
+            ));
+    }
 
 }

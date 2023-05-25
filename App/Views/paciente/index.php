@@ -52,7 +52,7 @@
                                 <td><?php echo $leito->descricao; ?></td>
                             <?php endif; ?>
                         <?php endforeach; ?>
-                        <td><?php echo $paciente->data_inter; ?></td>
+                        <td><?php echo date('d/m/Y H:i:s', strtotime($paciente->data_inter)); ?></td>
                         <td><?php echo $paciente->municip_orig; ?></td>
                         <td><?php echo $paciente->prontuario; ?></td>
                         <td><?php echo $paciente->status_now; ?></td>
@@ -130,7 +130,7 @@
                                 <td><?php echo $leito->descricao; ?></td>
                             <?php endif; ?>
                         <?php endforeach; ?>
-                        <td><?php echo $paciente->data_inter; ?></td>
+                        <td> <?php echo date('d/m/Y H:i:s', strtotime($paciente->data_inter)); ?></td>
                         <td><?php echo $paciente->municip_orig; ?></td>
                         <td><?php echo $paciente->prontuario; ?></td>
                         <td><?php echo $paciente->status_now; ?></td>

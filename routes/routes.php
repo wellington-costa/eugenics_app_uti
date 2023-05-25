@@ -47,6 +47,11 @@ $route->post('paciente/save', 'PacienteController@save');
 $route->post('paciente/update', 'PacienteController@update');
 $route->get('paciente/modalVisualizarPaciente/{idPaciente?}', 'PacienteController@modalVisualizarPaciente');
 $route->get('paciente/visualizarPaciente/{idPaciente?}', 'PacienteController@visualizarPaciente');
+$route->get('paciente/{idPaciente?}/prescricoes', 'PacienteController@modalPrescricaoIndex');
+$route->post('paciente/prescricao/save', 'PrescricaoController@save');
+$route->post('paciente/prescricao/update', 'PrescricaoController@update');
+$route->get('paciente/modalVisualizaPrescricao/{idPrescricao}', 'PacienteController@modalVisualizarPrescricao');
+$route->get('paciente/{idPaciente?}/formularioPrescricao', 'PacienteController@modalFormularioPrescricao');
 $route->get('paciente/ativarPaciente/{idPaciente}', 'PacienteController@ativarPaciente');
 
 # --------- Leitos --------------------------------

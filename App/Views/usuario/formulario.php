@@ -11,7 +11,7 @@
             <input type="hidden" name="id" value="<?php echo $usuario->id; ?>">
         <?php endif; ?>
 
-        <input type="hidden" name="id_empresa" value="<?php echo Session::get('idEmpresa'); ?>">
+        <input type="hidden" name="id_hospital" value="<?php echo Session::get('idHospital'); ?>">
 
         <div class="col-md-4">
             <div class="form-group">
@@ -38,23 +38,7 @@
             </div>
         </div>
 
-        <div class="col-md-4">
-            <div class="form-group">
-                <label for="password">Sexo *</label>
-                <select class="form-control" name="id_sexo" id="id_sexo">
-                    <option value="selecione">Selecione...</option>
-                    <?php foreach ($sexos as $sexo) : ?>
-                        <?php if (isset($usuario->id) && $usuario->id_sexo == $sexo->id) : ?>
-                            <option value="<?php echo $usuario->id_sexo; ?>"
-                                    selected="selected"><?php echo $sexo->descricao; ?>
-                            </option>
-                        <?php else : ?>
-                            <option value="<?php echo $sexo->id; ?>"><?php echo $sexo->descricao; ?></option>
-                        <?php endif; ?>
-                    <?php endforeach; ?>
-                </select>
-            </div>
-        </div>
+
 
         <!--
           Se o usuario logado for o mesmo que será editado, não mostra o campo de perfis porque

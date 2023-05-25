@@ -40,11 +40,11 @@ class PrescricaoController extends Controller
         if ($this->post->hasPost()) {
             $prescricao = new Prescricao();
             $dados = (array)$this->post->data();
-
-
+            $idPaciente = $dados['id_paciente'];
+            //echo print_r($dados);
             try {
                  $prescricao->save($dados);
-                return $this->get->redirectTo("prescricoes/index");
+                return $this->get->redirectTo("paciente/visualizarPaciente/{$idPaciente}");
 
             } catch (\Exception $e) {
                 dd($e->getMessage());
@@ -52,6 +52,26 @@ class PrescricaoController extends Controller
         }
     }
 
+    public function update()
+    {
+        if ($this->post->hasPost()) {
+
+            $prescricao = new Prescricao();
+            $dadosPrescricao = $prescricao->find($this->post->data()->id);
+            $dados = (array)$this->post->only([
+                'conteudo'
+            ]);
+
+
+            try {
+                $prescricao->update($dados, $dadosPrescricao->id);
+                return $this->get->redirectTo("paciente/visualizarPaciente/{$dadosPrescricao->id_paciente}");
+
+            } catch (Exception $e) {
+                dd($e->getMessage());
+            }
+        }
+    }
 
 
 

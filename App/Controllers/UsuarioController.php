@@ -3,7 +3,6 @@
 namespace App\Controllers;
 
 use App\Models\Perfil;
-use App\Models\Sexo;
 use App\Models\Usuario;
 use App\Rules\Logged;
 use App\Services\SendEmail\SendEmail;
@@ -34,7 +33,7 @@ class UsuarioController extends Controller
 
         $this->post = new Post();
         $this->get = new Get();
-        $this->idEmpresa = Session::get('idEmpresa');
+        $this->idHospital = Session::get('idHospital');
         $this->idUsuarioLogado = Session::get('idUsuario');
         $this->idPerfilUsuarioLogado = session::get('idPerfil');
 
@@ -49,7 +48,7 @@ class UsuarioController extends Controller
     {
         $usuario = new Usuario();
         $usuarios = $usuario->usuarios(
-            $this->idEmpresa,
+            $this->idHospital,
             $this->idUsuarioLogado,
             $this->idPerfilUsuarioLogado
         );
@@ -101,7 +100,7 @@ class UsuarioController extends Controller
 
             $dados = (array)$this->post->only([
                 'nome', 'email', 'password',
-                'id_sexo', 'id_perfil'
+                 'id_perfil'
             ]);
 
             if (!empty($_FILES["imagem"]['name'])) {
@@ -151,8 +150,7 @@ class UsuarioController extends Controller
 
     public function modalFormulario($idUsuario)
     {
-        $sexo = new Sexo();
-        $sexos = $sexo->all();
+
 
         $perfil = new Perfil();
         $perfis = $perfil->perfis(false, false, Session::get('idPerfil'));
@@ -171,7 +169,7 @@ class UsuarioController extends Controller
 
         $this->view('usuario/formulario', null,
             compact(
-                'sexos',
+
                 'usuario',
                 'perfis'
             ));
