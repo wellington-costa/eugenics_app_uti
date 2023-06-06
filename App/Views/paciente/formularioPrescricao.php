@@ -19,14 +19,14 @@
         </div>
         <div class="form-group">
             <div class="row">
-                <div class="col-md-5">
+                <div class="col-md-8">
                     <label><b> Item </b></label>
                 </div>
-                <div class="col-md-5">
-                    <label><b> Hora de início </b></label>
+                <div class="col-md-3">
+                    <label><b> Frequência hrs: </b></label>
                 </div>
                 <div class="col-md-2">
-                    <label><b> Suspender? </b></label>
+                    <label></label>
                 </div>
             </div>
 
@@ -37,7 +37,7 @@
                       <input type="text" class="form-control" name="item[]" placeholder="Medicamento ou orientação">
                 </div>
                 <div class="col-md-3">
-                      <input type="time" class="form-control" name="item_time[]">
+                      <input type="number" class="form-control" name="item_time[]" placeholder="8">
 
                 </div>
                 <div class="col-md-1">
@@ -48,13 +48,13 @@
 
             </div>
 
-            <button type="button" class="btn btn-success btn-sm" onclick="adicionarItem()">adicionar item</button>
-            <button type="button" class="btn btn-info btn-sm" onclick="obterDados()">ver</button>
+            <button type="button" class="btn btn-success btn-sm" onclick="adicionarItem()"><i class="fas fa-plus"></i></button>
+            <!--<button type="button" class="btn btn-info btn-sm" onclick="obterDados()">ver</button>-->
         </div>
     </div>
 
 <form method="post"
-      action="<?php echo isset($prescricao->id) ? BASEURL . '/prescricao/update' : BASEURL . '/paciente/prescricao/save'; ?>"
+      action="<?php BASEURL . '/paciente/prescricao/save'; ?>"
       enctype='multipart/form-data'>
       <!-- token de segurança -->
       <input type="hidden" name="_token" value="<?php echo TOKEN; ?>"/>

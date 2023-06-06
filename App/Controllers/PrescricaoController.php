@@ -65,7 +65,9 @@ class PrescricaoController extends Controller
 
             try {
                 $prescricao->update($dados, $dadosPrescricao->id);
-                return $this->get->redirectTo("paciente/visualizarPaciente/{$dadosPrescricao->id_paciente}");
+               // return $this->get->redirectTo("paciente/visualizarPaciente/{$dadosPrescricao->id_paciente}");
+               return $this->get->redirectTo("paciente/visualizarPaciente/{$dadosPrescricao->id_paciente}");
+
 
             } catch (Exception $e) {
                 dd($e->getMessage());

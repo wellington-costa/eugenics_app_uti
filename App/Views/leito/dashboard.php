@@ -12,6 +12,16 @@
         border-radius: 50%;
     }
 
+    .livre{
+        background: linear-gradient(rgba(0, 255, 0, 0.5), rgba(0, 255, 0, 0.2));
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    }
+    .ocupado{
+        background: linear-gradient(rgba(255, 0, 0, 0.5), rgba(255, 0, 0, 0.2));
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+
+    }
+
 
 
     @media only screen and (max-width: 600px) {
@@ -43,7 +53,11 @@
   <?php isset($leitos) ?>
     <?php foreach ($leitos as $leito): ?>
        <div class="col-lg-4 col-md-7 col-sm-7">
-         <div class="card card-stats">
+        <?php if($leito->status_now == '0'): ?>
+         <div class="card card-stats livre">
+        <?php else: ?>
+         <div class="card card-stats ocupado">
+        <?php endif; ?>
             <div class="card-body ">
                 <div class="row">
                     <div class="col-5 col-md-4">
@@ -53,7 +67,7 @@
                     </div>
                     <div class="col-7 col-md-8">
                         <div class="numbers">
-                            <p class="card-category" style="font-size:15px;"><?php echo $leito->descricao;?> </p>
+                            <p  style="font-size:15px;"><b><?php echo $leito->descricao;?></b> </p>
                             <p class="card-title" style="font-size:12px">
                             Status: <?php if($leito->status_now=='0'): ?>
                               <?php echo('Disponível'); ?>
@@ -71,10 +85,19 @@
                <?php foreach ($pacientes as $paciente): ?>
                 <?php if ($paciente->id_leito == $leito->id): ?>
                  <?php if ($paciente->status_now == "Internado"): ?>
-                <div class="stats">
+                <div onclick="paginaPaciente('<?php echo $paciente->id; ?> ');" style="cursor:pointer;">
                     <i class="fas fa-user-injured" style="color:#048e6d"></i>
                     <small>Paciente: <b><?php echo $paciente->nome; ?></b></small>
-                    </b></small>
+                    <hr>
+                    <small> <?php
+                              $dataEntrada = new DateTime($paciente->data_inter);
+                              $dataAtual = new DateTime();
+                              $diferenca = $dataAtual->diff($dataEntrada);
+                              echo $diferenca->days;
+                        ?> dias de internação </small>
+                    <hr>
+                    <small>Diagnóstico: <?php echo $paciente->diagnostico; ?></small>
+
                 </div>
                 <?php endif; ?>
                 <?php endif; ?>
@@ -102,7 +125,7 @@
 <script>
 
     function modalFormularioLeitos(rota, id) {
-        var url = "";
+        let url = "";
 
         if (id) {
             url = rota + "/" + id;
@@ -113,6 +136,12 @@
         $("#formulario").html("<center><h3>Carregando...</h3></center>");
         $("#modalLeito").modal({backdrop: 'static'});
         $("#formulario").load(url);
+    }
+    function paginaPaciente(id){
+           let rota = "<?php echo BASEURL . '/paciente/visualizarPaciente/';?>";
+           let url = rota + id;
+
+           window.location.href = url;
     }
 </script>
 
@@ -256,5 +285,7 @@
             }
         }
     });
+
+
 
 </script>

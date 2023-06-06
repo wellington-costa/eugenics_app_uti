@@ -137,7 +137,7 @@
                 <hr>
                 <div class="stats">
                     <i class="fas fa-user-injured" style="color:#048e6d"></i>
-                    <small>Total: <b><?php echo $pacientesCadastrados->total; ?></b></small>
+                    <!--<small>Total: <b><?php //echo $pacientesCadastrados->total; ?></b></small>-->
                     </b></small>
                 </div>
             </div>
