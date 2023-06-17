@@ -63,10 +63,10 @@ $route->post('leito/update', 'LeitoController@update');
 
 #--------------Prescricoes--------------------------------
 
-$route->get('prescricoes/{idPaciente?}', 'PrescricaoController@index');
+$route->get('prescricoes/cadastrar/{idPaciente?}', 'PrescricaoController@formulario');
 $route->get('prescricoes/modalFormularioIndex/{idPaciente?}', 'PrescricaoController@modalFormularioPrescricaoIndex');
 $route->get('prescricoes/modalFormulario/{idPaciente?}', 'PrescricaoController@modalFormularioPrescricao');
-$route->post('prescricoes/save/{idPaciente?}', 'PrescricaoController@save');
+$route->post('prescricoes/save', 'PrescricaoController@save');
 $route->post('prescricoes/update/{idPaciente?}', 'PrescricaoController@update');
 
 

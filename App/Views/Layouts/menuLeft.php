@@ -20,7 +20,7 @@ use System\Session\Session;
         <li class="">
             <a href="<?php echo BASEURL; ?>/paciente"
                class="<?php currentRouteFromMenu('paciente', 'pacienteBorder'); ?>">
-                <i class="fas fa-user-injured"></i>
+                <i class="fas fa-user"></i>
                 <p>Pacientes</p>
             </a>
         </li>

@@ -76,5 +76,18 @@ class PrescricaoController extends Controller
     }
 
 
+    public function formulario($idPaciente) {
+        $prescricao = new Prescricao();
+        $paciente = new Paciente();
+        $paciente = $paciente->find($idPaciente);
 
+
+    $this->view('prescricao/formulario', $this->layout,
+        compact(
+            'prescricao',
+            'paciente'
+
+        ));
+
+    }
 }

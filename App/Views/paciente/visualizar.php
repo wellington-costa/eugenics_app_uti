@@ -241,6 +241,11 @@
                         <i class="fas fa-plus"></i>
 
                     </button>
+                    <?php $rota3 = BASEURL . '/prescricoes/cadastrar/' . $idPaciente; ?>
+                    <a href="<?php echo $rota3; ?>"
+                    class="btn btn-sm btn-success">
+                        <i class="fas fa-plus"></i>
+                    </a>
         </center>
        <?php endif ?>
     <?php endif; ?>
@@ -370,9 +375,7 @@
 
     }
 
-    function aprazamento(){
 
-    }
 
 
     function obterDados() {

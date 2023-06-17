@@ -37,7 +37,7 @@
                       <input type="text" class="form-control" name="item[]" placeholder="Medicamento ou orientação">
                 </div>
                 <div class="col-md-3">
-                      <input type="number" class="form-control" name="item_time[]" placeholder="8">
+                      <input type="number" class="form-control" name="item_time[]">
 
                 </div>
                 <div class="col-md-1">
@@ -57,13 +57,7 @@
       action="<?php BASEURL . '/paciente/prescricao/save'; ?>"
       enctype='multipart/form-data'>
       <!-- token de segurança -->
-      <input type="hidden" name="_token" value="<?php echo TOKEN; ?>"/>
-
-
-
-        <?php if (isset($prescricao->id)) : ?>
-            <input type="hidden" name="id" value="<?php echo $prescricao->id; ?>">
-        <?php endif; ?>
+        <input type="hidden" name="_token" value="<?php echo TOKEN; ?>"/>
         <input type="hidden" name="id_paciente" value="<?php echo $paciente->id; ?>">
         <?php $medicoId = Session::get('idUsuario'); ?>
         <input type="hidden" name="id_medico" value="<?php echo $medicoId; ?>">

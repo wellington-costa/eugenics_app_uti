@@ -121,7 +121,7 @@
                 <div class="row">
                     <div class="col-5 col-md-4">
                         <div class="icon-big text-center icon-warning">
-                            <i class="fas fa-user-injured" style="color:#212120"></i>
+                            <i class="fas fa-user" style="color:#212120"></i>
                         </div>
                     </div>
                     <div class="col-7 col-md-8">
@@ -136,7 +136,7 @@
             <div class="card-footer ">
                 <hr>
                 <div class="stats">
-                    <i class="fas fa-user-injured" style="color:#048e6d"></i>
+                    <i class="fas fa-user" style="color:#048e6d"></i>
                     <!--<small>Total: <b><?php //echo $pacientesCadastrados->total; ?></b></small>-->
                     </b></small>
                 </div>

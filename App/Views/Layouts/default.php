@@ -262,7 +262,7 @@ use System\Session\Session;
 <script src="<?php echo BASEURL; ?>/public/assets/js/paper-dashboard.min.js"></script>
 <script src="<?php echo BASEURL; ?>/public/js/select2.js"></script>
 <script src="<?php echo BASEURL; ?>/public/js/confirm.js"></script>
-<script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+
 
 <script>
     $(function () {
@@ -284,7 +284,3 @@ use System\Session\Session;
 
 </html>
 
-<!--
-  Layout
-  https://demos.creative-tim.com/bs3/paper-dashboard/dashboard.html?_ga=2.109253573.1911018205.1590242535-1802779238.1590242535#
--->

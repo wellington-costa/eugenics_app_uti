@@ -240,7 +240,7 @@ class PacienteController extends Controller
             $paciente = $paciente->find($idPaciente);
 
 
-        $this->view('paciente/formularioPrescricao', null,
+        $this->view('prescricao/formulario', null,
             compact(
                 'prescricao',
                 'paciente'
